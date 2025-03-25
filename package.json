@@ -1,0 +1,30 @@
+{
+  "name": "eol-scanner",
+  "version": "1.0.0",
+  "description": "End-Of-Life scanner",
+  "type": "module",
+  "keywords": [
+    "eol"
+  ],
+  "homepage": "https://github.com/cybozu-te/EOL-scanner#readme",
+  "bugs": {
+    "url": "https://github.com/cybozu-te/EOL-scanner/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cybozu-te/EOL-scanner.git"
+  },
+  "license": "ISC",
+  "author": "te",
+  "scripts": {
+    "test": "echo Hello"
+  },
+  "devDependencies": {
+    "eslint": "^9.21.0",
+    "prettier": "^3.5.2",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "yargs": "^17.7.2"
+  }
+}
