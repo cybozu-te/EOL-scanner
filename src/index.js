@@ -10,6 +10,7 @@ yargs(hideBin(process.argv))
   })
   .option("month", {
     type: "number",
+    default: 12,
     describe: "EOL detection if higher than it",
   })
   .option("exclude", {
