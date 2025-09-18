@@ -14,17 +14,21 @@
     "type": "git",
     "url": "git+https://github.com/cybozu-te/EOL-scanner.git"
   },
-  "license": "ISC",
-  "author": "te",
+  "author": "TE",
   "scripts": {
-    "test": "echo Hello"
+    "scan": "node src/index.js"
   },
   "devDependencies": {
-    "eslint": "^9.21.0",
-    "prettier": "^3.5.2",
-    "eslint-plugin-prettier": "^5.2.3",
-    "eslint-config-prettier": "^10.0.1",
-    "eslint-plugin-unused-imports": "^4.1.4",
-    "yargs": "^17.7.2"
+    "@stylistic/eslint-plugin": "^5.3.1",
+    "globals": "^16.4.0",
+    "prettier": "^3.6.2",
+    "eslint": "^9.35.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1"
+  },
+  "dependencies": {
+    "yargs": "^18.0.0"
   }
 }

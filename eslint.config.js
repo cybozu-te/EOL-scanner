@@ -1,57 +1,65 @@
-const globals = require("globals");
-const unusedImports = require("eslint-plugin-unused-imports");
-const eslintPluginPrettierRecommended = require("eslint-plugin-prettier/recommended");
+import eslint from "@eslint/js";
+import stylistic from "@stylistic/eslint-plugin";
+import importPlugin from "eslint-plugin-import";
+import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
+import globals from "globals";
 
-const jsRules = {
-  quotes: [
-    "error",
-    "double",
-    { avoidEscape: true, allowTemplateLiterals: true },
-  ],
-  "no-var": ["error"],
-  indent: ["error", 2],
-  "prefer-const": ["error"],
-  semi: ["error", "always"],
-  "no-undef": ["error"],
-  "no-unused-vars": [
-    "error",
-    { argsIgnorePattern: "^_", varsIgnorePattern: "^js_" },
-  ],
-  "no-multiple-empty-lines": ["error"],
-  "max-statements-per-line": ["error", { max: 1 }],
-  "newline-per-chained-call": ["error", { ignoreChainWithDepth: 2 }],
-  "max-len": [
-    "error",
-    {
-      tabWidth: 2,
-      code: 80,
-      ignoreUrls: true,
-      ignoreStrings: true,
-      ignoreComments: true,
-      ignoreTemplateLiterals: true,
-    },
-  ],
-};
-
-module.exports = [
+export default [
+  eslint.configs.recommended,
+  importPlugin.flatConfigs.recommended,
+  eslintPluginPrettierRecommended,
   {
     plugins: {
-      "unused-imports": unusedImports,
-      prettier: eslintPluginPrettierRecommended.plugins.prettier,
-      eslintPluginPrettierRecommended,
+      "@stylistic": stylistic,
+      "simple-import-sort": simpleImportSort,
     },
     languageOptions: {
+      ecmaVersion: 2024,
+      sourceType: "module",
       globals: {
-        ...globals.browser,
-        ...globals.jquery,
         ...globals.node,
       },
     },
     rules: {
-      ...jsRules,
+      "prefer-const": "error",
+      "no-unused-vars": "off",
+      "@stylistic/quotes": [
+        "error",
+        "double",
+        { avoidEscape: true, allowTemplateLiterals: "always" },
+      ],
+      "@stylistic/indent": ["error", 2],
+      "@stylistic/semi": ["error", "always"],
+      "@stylistic/no-multiple-empty-lines": ["error"],
+      "@stylistic/max-statements-per-line": ["error", { max: 1 }],
+      "@stylistic/newline-per-chained-call": [
+        "error",
+        { ignoreChainWithDepth: 2 },
+      ],
+      "@stylistic/max-len": [
+        "error",
+        {
+          tabWidth: 2,
+          code: 100,
+          ignoreUrls: true,
+          ignoreStrings: true,
+          ignoreComments: true,
+          ignoreTemplateLiterals: true,
+        },
+      ],
+      "import/no-unresolved": ["error", { ignore: [".*"] }],
+      "import/newline-after-import": ["error", { count: 1 }],
+      "simple-import-sort/imports": [
+        "error",
+        {
+          groups: [["^#src", "^#resources"], ["^#entities"]],
+        },
+      ],
       "prettier/prettier": "error",
     },
-    files: ["**/*.js"],
-    ignores: ["node_modules"],
+  },
+  {
+    ignores: ["**/node_modules/*"],
   },
 ];
