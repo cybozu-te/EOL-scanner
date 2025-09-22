@@ -8,15 +8,9 @@
       "#src/*": [
         "./src/*"
       ],
-      "#helpers/*": [
-        "./src/helpers/*"
+      "#scanners/*": [
+        "./src/scanners/*"
       ],
-      "#resources/*": [
-        "./resources/*"
-      ],
-      "#entities/*": [
-        "./resources/entities/*"
-      ]
     }
   },
   "include": [

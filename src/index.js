@@ -5,7 +5,7 @@ import {
   EXCLUDED_URL_PATHS,
   YAMORY_HEADER_EN,
   YAMORY_HEADER_JP,
-} from "#resources/constants.js";
+} from "#src/constants.js";
 
 import {
   exportCsv,

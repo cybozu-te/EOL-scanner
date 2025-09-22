@@ -53,7 +53,7 @@ export default [
       "simple-import-sort/imports": [
         "error",
         {
-          groups: [["^#src", "^#resources"], ["^#entities"]],
+          groups: [["^#src", "^#scanners"]],
         },
       ],
       "prettier/prettier": "error",

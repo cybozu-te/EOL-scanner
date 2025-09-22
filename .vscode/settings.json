@@ -1,0 +1,13 @@
+{
+  "cSpell.words": [
+    "cybersource",
+    "pypi",
+    "rubygems"
+  ],
+  "cSpell.ignorePaths": [
+    "node_modules",
+    "package-lock.json",
+    "pnpm-lock.yaml",
+    ".vscode",
+  ]
+}
