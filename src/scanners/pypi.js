@@ -4,6 +4,7 @@ class PypiScanner {
   /**
    *
    * @param {string} packageUrl
+   * @return {string}
    */
   modifyRequestUrl(packageUrl) {
     const splitUrl = packageUrl.replace(/\/$/, "").split("/");

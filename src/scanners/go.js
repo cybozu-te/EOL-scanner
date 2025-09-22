@@ -4,6 +4,7 @@ class GoScanner {
   /**
    *
    * @param {string} packageUrl
+   * @return {string}
    */
   modifyRequestUrl(packageUrl) {
     return `${packageUrl}?tab=versions`;

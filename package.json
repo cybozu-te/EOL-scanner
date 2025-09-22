@@ -18,20 +18,6 @@
   "scripts": {
     "scan": "node src/index.js"
   },
-  "imports": {
-    "#src/*": [
-      "./src/*"
-    ],
-    "#helpers/*": [
-      "./src/helpers/*"
-    ],
-    "#resources/*": [
-      "./resources/*"
-    ],
-    "#entities/*": [
-      "./resources/entities/*"
-    ]
-  },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^5.3.1",
     "globals": "^16.4.0",

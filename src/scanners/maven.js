@@ -5,7 +5,7 @@ class MavenScanner {
   /**
    *
    * @param {number} timeInMs
-   * @returns
+   * @returns {Promise<void>}
    */
   async sleep(timeInMs) {
     return new Promise((resolve) => {
@@ -16,6 +16,7 @@ class MavenScanner {
   /**
    *
    * @param {string} packageUrl
+   * @returns {string}
    */
   modifyRequestUrl(packageUrl) {
     const splitUrl = packageUrl.replace(/\/$/, "").split("/");
@@ -42,9 +43,10 @@ class MavenScanner {
       let errorMessage = "";
       const newBrowser = await puppeteer.launch();
       const newPage = await newBrowser.newPage();
-      await newPage.setUserAgent(
-        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36",
-      );
+      await newPage.setUserAgent({
+        userAgent:
+          "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36",
+      });
       try {
         // Go to mvn repository url and retry one time if not OK
         let httpRes = await newPage.goto(packageUrl, {

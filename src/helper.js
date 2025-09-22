@@ -11,8 +11,7 @@ import { nugetScanner } from "#scanners/nuget.js";
 import { pypiScanner } from "#scanners/pypi.js";
 import { rubyGemsScanner } from "#scanners/rubygems.js";
 
-import { parse } from "csv-parse/sync";
-import { stringify } from "csv-stringify/sync";
+import { parse, stringify } from "csv/sync";
 import fs from "fs";
 import path from "path";
 

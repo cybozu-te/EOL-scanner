@@ -4,6 +4,7 @@ class NugetScanner {
   /**
    *
    * @param {string} packageUrl
+   * @returns {string}
    */
   modifyRequestUrl(packageUrl) {
     const splitUrl = packageUrl.replace(/\/$/, "").split("/");
