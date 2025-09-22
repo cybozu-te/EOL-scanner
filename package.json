@@ -18,6 +18,20 @@
   "scripts": {
     "scan": "node src/index.js"
   },
+  "imports": {
+    "#src/*": [
+      "./src/*"
+    ],
+    "#helpers/*": [
+      "./src/helpers/*"
+    ],
+    "#resources/*": [
+      "./resources/*"
+    ],
+    "#entities/*": [
+      "./resources/entities/*"
+    ]
+  },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^5.3.1",
     "globals": "^16.4.0",
@@ -29,6 +43,9 @@
     "eslint-plugin-simple-import-sort": "^12.1.1"
   },
   "dependencies": {
+    "axios": "^1.12.2",
+    "csv": "^6.4.1",
+    "puppeteer": "^24.22.0",
     "yargs": "^18.0.0"
   }
 }
