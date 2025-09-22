@@ -72,7 +72,6 @@ class MavenScanner {
           }
 
           const allPublishInfo = [];
-          console.log(textResOneLine);
           for (let i = 0; i < allPublishDateRegex.length; i++) {
             regex = new RegExp(allPublishDateRegex[i], "g");
             // TODO: fix error here
