@@ -8,6 +8,9 @@
       "#src/*": [
         "./src/*"
       ],
+      "#helpers/*": [
+        "./src/helpers/*"
+      ],
       "#resources/*": [
         "./resources/*"
       ],
