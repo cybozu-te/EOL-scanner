@@ -63,7 +63,7 @@ class MavenScanner {
           const textRes = await httpRes.text();
           const textResOneLine = textRes.split(/\r?\n/).join("");
           let regex = new RegExp('class="vbtn .*?">(.*?)</a>', "g");
-          let matches = textResOneLine.matchAll(regex);
+          const matches = textResOneLine.matchAll(regex);
           const allVersions = [];
           const allPublishDateRegex = [];
           for (const match of matches) {
@@ -76,10 +76,8 @@ class MavenScanner {
           const allPublishInfo = [];
           for (let i = 0; i < allPublishDateRegex.length; i++) {
             regex = new RegExp(allPublishDateRegex[i], "g");
-            // TODO: fix error here
-            // @ts-ignore
-            matches = textResOneLine.match(regex);
-            const publishDate = matches[1];
+            const _matches = textResOneLine.match(regex);
+            const publishDate = _matches[1];
             allPublishInfo.push({
               version: allVersions[i],
               date: new Date(publishDate),

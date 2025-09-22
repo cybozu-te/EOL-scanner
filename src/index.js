@@ -19,7 +19,7 @@ import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
 const argv = yargs(hideBin(process.argv))
-  .command("$0 <path_csv> [month] [exclude] [split]", "Check EOL dependency")
+  .command("$0 <path_csv> [month] [exclude] [split]", "Scan EOL dependency")
   .positional("path_csv", {
     demandOption: true,
     type: "string",

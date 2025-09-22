@@ -15,6 +15,14 @@
     "url": "git+https://github.com/cybozu-te/EOL-scanner.git"
   },
   "author": "TE",
+  "imports": {
+    "#src/*": [
+      "./src/*"
+    ],
+    "#scanners/*": [
+      "./src/scanners/*"
+    ]
+  },
   "scripts": {
     "scan": "node src/index.js"
   },
