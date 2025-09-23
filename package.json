@@ -24,6 +24,7 @@
     ]
   },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "scan": "node src/index.js"
   },
   "devDependencies": {
