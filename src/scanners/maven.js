@@ -34,9 +34,7 @@ class MavenScanner {
     let lastPublish;
     try {
       const modifiedUrl = this.modifyRequestUrl(packageUrl);
-      const jsonResponse = await axios.get(modifiedUrl, {
-        timeout: 5000,
-      });
+      const jsonResponse = await axios.get(modifiedUrl);
       const jsonDocs = jsonResponse.data["response"]["docs"];
       lastPublish = {
         version: jsonDocs[0]["v"],
