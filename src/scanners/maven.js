@@ -31,16 +31,18 @@ class MavenScanner {
    * @returns {Promise<{version: string, date: string}>}
    */
   async getLastPublish(packageUrl) {
-    const modifiedUrl = this.modifyRequestUrl(packageUrl);
-    const jsonResponse = await axios.get(modifiedUrl);
-    const jsonDocs = jsonResponse.data["response"]["docs"];
-    if (jsonDocs.length > 0) {
-      return {
+    let lastPublish;
+    try {
+      const modifiedUrl = this.modifyRequestUrl(packageUrl);
+      const jsonResponse = await axios.get(modifiedUrl, {
+        timeout: 5000,
+      });
+      const jsonDocs = jsonResponse.data["response"]["docs"];
+      lastPublish = {
         version: jsonDocs[0]["v"],
         date: new Date(jsonDocs[0]["timestamp"]).toString(),
       };
-    } else {
-      let errorMessage = "";
+    } catch (error) {
       const newBrowser = await puppeteer.launch();
       const newPage = await newBrowser.newPage();
       await newPage.setUserAgent({
@@ -69,13 +71,13 @@ class MavenScanner {
           for (const match of matches) {
             const versionMatched = match[1];
             allVersions.push(versionMatched);
-            const _regex = `class="vbtn .*?">${versionMatched}<\\/a>.*?((Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) ?( \\d{1,2}|), \\d{4})<\\/span><\\/td><\\/tr>`;
+            const _regex = `class="vbtn .*?">${versionMatched}<\\/a>.*?((Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) ?( \\d{1,2}|), \\d{4})<\\/`;
             allPublishDateRegex.push(_regex);
           }
 
           const allPublishInfo = [];
           for (let i = 0; i < allPublishDateRegex.length; i++) {
-            regex = new RegExp(allPublishDateRegex[i], "g");
+            regex = new RegExp(allPublishDateRegex[i]);
             const _matches = textResOneLine.match(regex);
             const publishDate = _matches[1];
             allPublishInfo.push({
@@ -87,23 +89,22 @@ class MavenScanner {
             (objA, objB) => Number(objB.date) - Number(objA.date),
           )[0];
 
-          return {
+          lastPublish = {
             version: latestPublishInfo.version,
             date: latestPublishInfo.date.toString(),
           };
         } else {
-          // const textRes = await httpRes.text();
-          // fs.writeFileSync(path.join(__dirname, 'error', packageUrl), textRes);
-          errorMessage = `STATUS CODE: ${httpRes.status()}`;
+          throw new Error(`STATUS CODE: ${httpRes.status()}`);
         }
       } catch (ex) {
-        errorMessage = ex.message;
+        throw new Error(ex.message);
       } finally {
         await newPage.close();
         await newBrowser.close();
       }
-      throw errorMessage;
     }
+
+    return lastPublish;
   }
 }
 
