@@ -10,13 +10,6 @@ export const SUPPORTED_TYPES = [
   "rubygems",
 ];
 
-export const EXCLUDED_URL_PATHS = [
-  "com.cybozu.",
-  "com.cybersource.",
-  "com.gmo_pg.g_pay.client",
-  "@kintone-plugins",
-];
-
 export const CSV_DIR = {
   output: path.join(process.cwd(), "output"),
   manualSplit: path.join(

@@ -2,7 +2,6 @@ import {
   CSV_DIR,
   CSV_PATH,
   EOL_HEADER_EN,
-  EXCLUDED_URL_PATHS,
   YAMORY_HEADER_EN,
   YAMORY_HEADER_JP,
 } from "#src/constants.js";
@@ -14,10 +13,14 @@ import {
 } from "#src/helper.js";
 
 import fs from "fs";
+import path from "path";
 import process from "process";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
+const configFilePath = path.join(process.cwd(), "config.json");
+const configFileContent = fs.readFileSync(configFilePath, "utf-8");
+const config = JSON.parse(configFileContent);
 const argv = yargs(hideBin(process.argv))
   .command("$0 <path_csv> [month] [exclude] [split]", "Scan EOL dependency")
   .positional("path_csv", {
@@ -27,13 +30,13 @@ const argv = yargs(hideBin(process.argv))
   })
   .option("month", {
     type: "number",
-    default: 12,
+    default: config["month"],
     describe: "EOL detection if higher than it",
   })
   .option("exclude", {
     type: "array",
     default: [],
-    coerce: (inputVal) => [...EXCLUDED_URL_PATHS, ...inputVal],
+    coerce: (inputVal) => [...config["exclude"], ...inputVal],
     describe: "List urls that forcing to check manually",
   })
   .option("hide-exclude", {

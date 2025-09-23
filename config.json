@@ -1,0 +1,9 @@
+{
+  "month": 12,
+  "exclude": [
+    "com.cybozu.",
+    "com.cybersource.",
+    "com.gmo_pg.g_pay.client",
+    "@kintone-plugins"
+  ]
+}
