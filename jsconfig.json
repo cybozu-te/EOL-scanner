@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
+    "module": "nodenext",
     "target": "ES2024",
     "checkJs": true,
     "baseUrl": ".",
