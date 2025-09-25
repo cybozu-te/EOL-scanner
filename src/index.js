@@ -1,4 +1,5 @@
 import {
+  CONFIG_FILE_PATH,
   CSV_DIR,
   CSV_PATH,
   EOL_HEADER_EN,
@@ -13,13 +14,11 @@ import {
 } from "#src/helper.js";
 
 import fs from "fs";
-import path from "path";
 import process from "process";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
-const configFilePath = path.join(process.cwd(), "config.json");
-const configFileContent = fs.readFileSync(configFilePath, "utf-8");
+const configFileContent = fs.readFileSync(CONFIG_FILE_PATH, "utf-8");
 const config = JSON.parse(configFileContent);
 const argv = yargs(hideBin(process.argv))
   .command("$0 <path_csv> [month] [exclude] [split]", "Scan EOL dependency")
