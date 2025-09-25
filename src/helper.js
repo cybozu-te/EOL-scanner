@@ -72,7 +72,7 @@ export function exportSplittedCsv(outputDir, csvRows, headers) {
   const rowsPerGroup = {};
 
   for (const row of csvRows) {
-    const packageType = row[YAMORY_HEADER_JP["package type"]];
+    const packageType = row[YAMORY_HEADER_JP["package type"]].toLowerCase();
     const team = row[YAMORY_HEADER_JP.team];
     const repositoryGroup = row[YAMORY_HEADER_JP["repository/project group"]];
     let group = `${packageType}-${team}_${repositoryGroup}`;
