@@ -1,9 +1,4 @@
 import path from "path";
-import { fileURLToPath } from "url";
-
-export const CONFIG_FILE_PATH = fileURLToPath(
-  new URL("../config.json", import.meta.url),
-);
 
 export const SUPPORTED_TYPES = [
   "composer",

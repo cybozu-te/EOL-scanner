@@ -16,6 +16,9 @@ export default [
     },
     languageOptions: {
       ecmaVersion: 2024,
+      ecmaFeatures: {
+        experimentalObjectRestSpread: true
+      },
       sourceType: "module",
       globals: {
         ...globals.node,
