@@ -15,7 +15,16 @@
     "url": "git+https://github.com/cybozu-te/EOL-scanner.git"
   },
   "author": "TE",
+  "imports": {
+    "#src/*": [
+      "./src/*"
+    ],
+    "#scanners/*": [
+      "./src/scanners/*"
+    ]
+  },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "scan": "node src/index.js"
   },
   "devDependencies": {
@@ -29,6 +38,9 @@
     "eslint-plugin-simple-import-sort": "^12.1.1"
   },
   "dependencies": {
+    "axios": "^1.12.2",
+    "csv": "^6.4.1",
+    "puppeteer": "^24.22.0",
     "yargs": "^18.0.0"
   }
 }

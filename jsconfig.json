@@ -1,24 +1,23 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node",
-    "target": "ES2024",
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
     "checkJs": true,
     "baseUrl": ".",
     "paths": {
       "#src/*": [
         "./src/*"
       ],
-      "#resources/*": [
-        "./resources/*"
+      "#scanners/*": [
+        "./src/scanners/*"
       ],
-      "#entities/*": [
-        "./resources/entities/*"
-      ]
     }
   },
   "include": [
     "./src",
-    "./resources",
   ],
   "exclude": [
     "node_modules",

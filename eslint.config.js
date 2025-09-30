@@ -16,6 +16,9 @@ export default [
     },
     languageOptions: {
       ecmaVersion: 2024,
+      ecmaFeatures: {
+        experimentalObjectRestSpread: true
+      },
       sourceType: "module",
       globals: {
         ...globals.node,
@@ -53,7 +56,7 @@ export default [
       "simple-import-sort/imports": [
         "error",
         {
-          groups: [["^#src", "^#resources"], ["^#entities"]],
+          groups: [["^#src", "^#scanners"]],
         },
       ],
       "prettier/prettier": "error",
