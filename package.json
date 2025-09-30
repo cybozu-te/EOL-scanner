@@ -42,5 +42,10 @@
     "csv": "^6.4.1",
     "puppeteer": "^24.22.0",
     "yargs": "^18.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "puppeteer"
+    ]
   }
 }
