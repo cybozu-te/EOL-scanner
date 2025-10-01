@@ -3,7 +3,7 @@
 ## USAGE
 
 ```bash
-node main.js <path_csv> [month] [exclude] [split]
+node ./src/index.js <path_csv> [month] [exclude] [split]
 
 Scan EOL dependency
 
@@ -21,8 +21,8 @@ Options:
 
 ## EXAMPLE
 
-- `node main.js ./input/export.csv` ➡ normal
-- `node main.js ./input/export.csv --month 24` ➡ custom EOL detection
-- `node main.js ./input/export.csv --exclude com.kintone.lib1 com.kintone.lib2` ➡ add more url paths to exclude
-- `node main.js ./input/export.csv --hide-exclude` ➡ hide all exclude dependencies
-- `node main.js ./input/export.csv --split` ➡ split file eol.csv by {team_repository>project group}
+- `node ./src/index.js ./input/export.csv` ➡ normal
+- `node ./src/index.js ./input/export.csv --month 24` ➡ custom EOL detection
+- `node ./src/index.js ./input/export.csv --exclude com.kintone.lib1 com.kintone.lib2` ➡ add more url paths to exclude
+- `node ./src/index.js ./input/export.csv --hide-exclude` ➡ hide all exclude dependencies
+- `node ./src/index.js ./input/export.csv --split` ➡ split file eol.csv by {team_repository>project group}
