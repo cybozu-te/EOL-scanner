@@ -43,6 +43,17 @@
     "puppeteer": "^24.22.0",
     "yargs": "^18.0.0"
   },
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=10.27.0"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": ">=10.27.0",
+      "onFail": "error"
+    }
+  },
   "pnpm": {
     "onlyBuiltDependencies": [
       "puppeteer"
