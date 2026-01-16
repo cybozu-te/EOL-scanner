@@ -222,7 +222,7 @@ export async function scanEOL(packageType, csvRows, monthThreshold) {
         ? `Status Code: ${error.response.status}`
         : error;
       console.log(
-        `❌ when scanning dependency url ${packageUrl}\n  >>> Request URL: ${modifiedUrl}\n  >>> ${errorMsg}`,
+        `❌ [${packageType}] when scanning dependency url ${packageUrl}\n  >>> Request URL: ${modifiedUrl}\n  >>> ${errorMsg}`,
       );
       errorRows.push(...csvRows);
     }
