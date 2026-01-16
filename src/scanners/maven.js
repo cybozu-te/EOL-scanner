@@ -20,8 +20,8 @@ class MavenScanner {
    */
   modifyRequestUrl(packageUrl) {
     const splitUrl = packageUrl.replace(/\/$/, "").split("/");
-    const artifact = splitUrl[splitUrl.length - 1];
-    const group = splitUrl[splitUrl.length - 2];
+    const artifact = splitUrl[splitUrl.length - 2];
+    const group = splitUrl[splitUrl.length - 3];
     return `https://search.maven.org/solrsearch/select?q=g:${group}+AND+a:${artifact}&core=gav&start=0&rows=1&wt=json`;
   }
 

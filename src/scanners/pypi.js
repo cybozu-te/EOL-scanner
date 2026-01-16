@@ -8,7 +8,7 @@ class PypiScanner {
    */
   modifyRequestUrl(packageUrl) {
     const splitUrl = packageUrl.replace(/\/$/, "").split("/");
-    const name = splitUrl[splitUrl.length - 1];
+    const name = splitUrl[splitUrl.length - 2];
     return `https://pypi.org/pypi/${name}/json`;
   }
 

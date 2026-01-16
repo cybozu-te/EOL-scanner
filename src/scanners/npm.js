@@ -8,8 +8,8 @@ class NpmScanner {
    */
   modifyRequestUrl(packageUrl) {
     const splitUrl = packageUrl.replace(/\/$/, "").split("/");
-    const name = splitUrl[splitUrl.length - 1];
-    const group = splitUrl[splitUrl.length - 2];
+    const name = splitUrl[splitUrl.length - 3];
+    const group = splitUrl[splitUrl.length - 4];
     if (group.startsWith("@")) {
       return `https://registry.npmjs.org/${group}/${name}/latest`;
     } else {
